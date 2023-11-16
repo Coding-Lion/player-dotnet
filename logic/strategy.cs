@@ -41,20 +41,24 @@ public class Strategy
         else if (gap == 0) score -= 0;
 
         Console.WriteLine("Final Score: " + score);
-        Console.WriteLine("active Player: " + table.activePlayer);
         if (gap <= 1 && higherCard.rank != "Q" && higherCard.rank != "K" && higherCard.rank != "A")
             score += 1;
 
         if (score >= 14) return new Bet(ourPlayer.stack);
         if (score >= 10) return new Bet(table.minimumRaise);
 
-        if (score >= 9 && table.activePlayer <= 1) return new Bet(table.minimumRaise);
-        if (score >= 8 && table.activePlayer <= 1) return new Bet(0);
-        if (score >= 8 && table.activePlayer <= 3) return new Bet(table.minimumRaise);
-        if (score >= 7 && table.activePlayer <= 3) return new Bet(0);
+        var currentPosition = table.activePlayer - table.currentDealer;
+        if (currentPosition < 0) currentPosition = table.players.Length - currentPosition;
+        
+        Console.WriteLine("current Position: " + currentPosition + " " + table.currentDealer);
+        
+        if (score >= 9 && currentPosition <= 1) return new Bet(table.minimumRaise);
+        if (score >= 8 && currentPosition <= 1) return new Bet(0);
+        if (score >= 8 && currentPosition <= 3) return new Bet(table.minimumRaise);
+        if (score >= 7 && currentPosition <= 3) return new Bet(0);
 
-        if (score >= 7 && table.activePlayer <= 5) return new Bet(table.minimumRaise);
-        if (score >= 6 && table.activePlayer <= 5) return new Bet(0);
+        if (score >= 7 && currentPosition <= 5) return new Bet(table.minimumRaise);
+        if (score >= 6 && currentPosition <= 5) return new Bet(0);
 
         return new Bet(0);
     }
