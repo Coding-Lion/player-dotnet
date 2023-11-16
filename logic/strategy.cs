@@ -72,14 +72,14 @@ public class Strategy
             return new Bet(0);
         }
         
-        if (score >= 6 && currentPosition <= 3) return new Bet(table.minimumRaise);
-        if (score >= 5 && currentPosition <= 3)
+        if (score >= (6- modifier) && currentPosition <= 3) return new Bet(table.minimumRaise);
+        if (score >= (5- modifier) && currentPosition <= 3)
         {
             Console.WriteLine("FOLD");
             return new Bet(0);
         }
-        if (score >= 5 && currentPosition <= 5) return new Bet(table.minimumRaise);
-        if (score >= 4 && currentPosition <= 5)
+        if (score >= (5- modifier) && currentPosition <= 5) return new Bet(table.minimumRaise);
+        if (score >= (4- modifier) && currentPosition <= 5)
         {
             Console.WriteLine("FOLD");
             return new Bet(0);
