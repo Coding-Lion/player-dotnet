@@ -45,21 +45,34 @@ public class Strategy
             score += 1;
 
         if (score >= 14) return new Bet(ourPlayer.stack);
-        if (score >= 10) return new Bet(table.minimumRaise);
+        if (score >= 9) return new Bet(table.minimumRaise);
 
         var currentPosition = table.activePlayer - table.currentDealer;
         if (currentPosition < 0) currentPosition = table.players.Length - currentPosition - 1;
         
         Console.WriteLine("current Position: " + currentPosition + " " + table.currentDealer);
         
-        if (score >= 9 && currentPosition <= 1) return new Bet(table.minimumRaise);
-        if (score >= 8 && currentPosition <= 1) return new Bet(0);
-        if (score >= 8 && currentPosition <= 3) return new Bet(table.minimumRaise);
-        if (score >= 7 && currentPosition <= 3) return new Bet(0);
+        if (score >= 8 && currentPosition <= 1) return new Bet(table.minimumRaise);
+        if (score >= 7 && currentPosition <= 1) 
+        {
+            Console.WriteLine("FOLD");
+            return new Bet(0);
+        }
+        
+        if (score >= 7 && currentPosition <= 3) return new Bet(table.minimumRaise);
+        if (score >= 6 && currentPosition <= 3)
+        {
+            Console.WriteLine("FOLD");
+            return new Bet(0);
+        }
+        if (score >= 6 && currentPosition <= 5) return new Bet(table.minimumRaise);
+        if (score >= 5 && currentPosition <= 5)
+        {
+            Console.WriteLine("FOLD");
+            return new Bet(0);
+        }
 
-        if (score >= 7 && currentPosition <= 5) return new Bet(table.minimumRaise);
-        if (score >= 6 && currentPosition <= 5) return new Bet(0);
-
+        Console.WriteLine("FOLD");
         return new Bet(0);
     }
 }
