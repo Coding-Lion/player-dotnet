@@ -37,6 +37,7 @@ public class Strategy
         else if (gap == 0) score -= 0;
 
         Console.WriteLine("ROUND: " + table.round);
+        Console.WriteLine("Score: " + score);
         if (gap <= 1 && higherCard.rank != Rank.Q && higherCard.rank != Rank.K && higherCard.rank != Rank.A)
             score = score + 1;
         
