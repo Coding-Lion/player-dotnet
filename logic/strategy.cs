@@ -44,7 +44,11 @@ public class Strategy
         if (gap <= 1 && higherCard.rank != "Q" && higherCard.rank != "K" && higherCard.rank != "A")
             score += 1;
 
-        if (score >= 14) return new Bet(ourPlayer.stack);
+        if (score >= 14)
+        {
+            Console.WriteLine("ALL IN");
+            return new Bet(ourPlayer.stack);
+        }
         if (score >= 9) return new Bet(table.minimumRaise);
 
         var currentPosition = table.activePlayer - table.currentDealer;
