@@ -32,7 +32,7 @@ public class Strategy
         Console.WriteLine();
         Console.WriteLine("ROUND: " + table.round);
         Console.WriteLine("High card: " + higherCard.rank + " " + higherCard.suit + " " + higherCard.points + " ");
-        Console.WriteLine("High card: " + lowerCard.rank + " " + lowerCard.suit + " " + lowerCard.points + " ");
+        Console.WriteLine("Low card: " + lowerCard.rank + " " + lowerCard.suit + " " + lowerCard.points + " ");
         // Card gap
         if (gap >= 4) score -= 5;
         else if (gap == 3) score -= 4;
