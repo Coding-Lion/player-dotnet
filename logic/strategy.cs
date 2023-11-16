@@ -41,10 +41,11 @@ public class Strategy
         else if (gap == 0) score -= 0;
 
         Console.WriteLine("Final Score: " + score);
-        Console.WriteLine("active Score: " + table.activePlayer);
+        Console.WriteLine("active Player: " + table.activePlayer);
         if (gap <= 1 && higherCard.rank != "Q" && higherCard.rank != "K" && higherCard.rank != "A")
             score += 1;
 
+        if (score >= 14) return new Bet(ourPlayer.stack);
         if (score >= 10) return new Bet(table.minimumRaise);
 
         if (score >= 9 && table.activePlayer <= 1) return new Bet(table.minimumRaise);
