@@ -41,7 +41,7 @@ public class Strategy
 
         Console.WriteLine("ROUND: " + table.round);
         Console.WriteLine("Score: " + score);
-        if (gap <= 1 && higherCard.rank != Rank.Q && higherCard.rank != Rank.K && higherCard.rank != Rank.A)
+        if (gap <= 1 && higherCard.rank != "Q" && higherCard.rank != "K" && higherCard.rank != "A")
             score += 1;
 
         if (score >= 10) return new Bet(table.minimumRaise);
