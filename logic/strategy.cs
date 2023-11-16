@@ -48,7 +48,7 @@ public class Strategy
         if (score >= 10) return new Bet(table.minimumRaise);
 
         var currentPosition = table.activePlayer - table.currentDealer;
-        if (currentPosition < 0) currentPosition = table.players.Length - currentPosition;
+        if (currentPosition < 0) currentPosition = table.players.Length - currentPosition - 1;
         
         Console.WriteLine("current Position: " + currentPosition + " " + table.currentDealer);
         
