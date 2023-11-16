@@ -24,9 +24,13 @@ public class Strategy
 
         float score = higherCard.points;
 
-        // Cards suited?
+        // Pairs
         if (higherCard.rank == lowerCard.rank) score *= 2;
 
+        // Cards suited?
+        if (higherCard.suit == lowerCard.suit) score += 2;
+        
+        
         var gap = higherCard.getGap(lowerCard);
 
         Console.WriteLine();
