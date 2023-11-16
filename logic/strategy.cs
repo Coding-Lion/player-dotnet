@@ -59,7 +59,7 @@ public class Strategy
         var outPlayers = 0;
         foreach (var tablePlayer in table.players)
         {
-            if (tablePlayer.status == "O") outPlayers++;
+            if (tablePlayer.status == "OUT") outPlayers++;
         }
         Console.WriteLine("outPlayers: " + outPlayers);
         if (outPlayers > 2) modifier = 1;
