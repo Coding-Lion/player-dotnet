@@ -63,8 +63,6 @@ public class Strategy
             if (tablePlayer.status == "OUT") outPlayers++;
         }
 
-        if (score < 4 && table.minimumRaise > ourPlayer.stack) return new Bet(0);
-
         Console.WriteLine("outPlayers: " + outPlayers);
         if (outPlayers > 3) modifier = 1;
         if (outPlayers > 5) modifier = 3;
@@ -83,8 +81,8 @@ public class Strategy
             return new Bet(0);
         }
 
-        if (score >= (4 - modifier) && currentPosition <= 5) return new Bet(table.minimumRaise);
-        if (score >= (3 - modifier) && currentPosition <= 5)
+        if (score >= (5 - modifier) && currentPosition <= 5) return new Bet(table.minimumRaise);
+        if (score >= (4 - modifier) && currentPosition <= 5)
         {
             Console.WriteLine("FOLD");
             return new Bet(0);
