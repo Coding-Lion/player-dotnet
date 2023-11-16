@@ -7,7 +7,7 @@ public class Bet
     {
         get
         {
-            return bet;
+            return _bet;
         }
         set
         {
