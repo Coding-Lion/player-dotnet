@@ -62,7 +62,7 @@ public class Strategy
             if (tablePlayer.status == "O") outPlayers++;
         }
         Console.WriteLine("outPlayers: " + outPlayers);
-        if (outPlayers > 2) modifier = 2;
+        if (outPlayers > 2) modifier = 1;
         if (outPlayers > 4) modifier = 4;
         
         if (score >= (7 - modifier) && currentPosition <= 1) return new Bet(table.minimumRaise);
