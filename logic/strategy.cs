@@ -56,7 +56,14 @@ public class Strategy
         
         Console.WriteLine("current Position: " + currentPosition + " " + table.currentDealer);
         var modifier = 0;
-        if (table.round > 10) modifier = 4;
+        var outPlayers = 0;
+        foreach (var tablePlayer in table.players)
+        {
+            if (tablePlayer.status == "O") outPlayers++;
+        }
+        Console.WriteLine("outPlayers: " + outPlayers);
+        if (outPlayers > 2) modifier = 2;
+        if (outPlayers > 4) modifier = 4;
         
         if (score >= (7 - modifier) && currentPosition <= 1) return new Bet(table.minimumRaise);
         if (score >= (6 - modifier) && currentPosition <= 1) 

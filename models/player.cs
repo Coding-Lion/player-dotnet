@@ -8,7 +8,7 @@ public enum PlayerStatusEnum
 public class Player
 {
     public string name;
-    public PlayerStatusEnum status;
+    public string status;
     public int stack;
     public int bet;
     public Card[] cards;
