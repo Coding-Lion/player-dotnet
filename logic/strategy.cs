@@ -29,7 +29,8 @@ public class Strategy
 
         var gap = higherCard.getGap(lowerCard);
 
-        Console.WriteLine("Score: " + score);
+        Console.WriteLine();
+        Console.WriteLine("ROUND: " + table.round);
         Console.WriteLine("High card: " + higherCard.rank + " " + higherCard.suit + " " + higherCard.points + " ");
         Console.WriteLine("High card: " + lowerCard.rank + " " + lowerCard.suit + " " + lowerCard.points + " ");
         // Card gap
@@ -39,8 +40,8 @@ public class Strategy
         else if (gap == 1) score -= 1;
         else if (gap == 0) score -= 0;
 
-        Console.WriteLine("ROUND: " + table.round);
-        Console.WriteLine("Score: " + score);
+        Console.WriteLine("Final Score: " + score);
+        Console.WriteLine("active Score: " + table.activePlayer);
         if (gap <= 1 && higherCard.rank != "Q" && higherCard.rank != "K" && higherCard.rank != "A")
             score += 1;
 
