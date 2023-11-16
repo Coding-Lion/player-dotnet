@@ -36,6 +36,7 @@ public class Strategy
         else if (gap == 1) score -= 1;
         else if (gap == 0) score -= 0;
 
+        Console.WriteLine("ROUND: " + table.round);
         if (gap <= 1 && higherCard.rank != Rank.Q && higherCard.rank != Rank.K && higherCard.rank != Rank.A)
             score = score + 1;
         
@@ -43,7 +44,6 @@ public class Strategy
         
         if (score >= 9 && table.activePlayer <= 1) return new Bet(table.minimumRaise);
         if (score >= 8 && table.activePlayer <= 1) return new Bet(0);
-        
         if (score >= 8 && table.activePlayer <= 3) return new Bet(table.minimumRaise);
         if (score >= 7 && table.activePlayer <= 3) return new Bet(0);
         
