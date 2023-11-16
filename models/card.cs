@@ -8,18 +8,19 @@ public class Card
     public void rateCard()
     {
         if (Rank.A == rank) points = 10;
-        if (Rank.K == rank) points = 8;
-        if (Rank.Q == rank) points = 7;
-        if (Rank.J == rank) points = 6;
-        if (Rank._10 == rank) points = 5;
-        if (Rank._9 == rank) points = 9/2;
-        if (Rank._8 == rank) points = 4;
-        if (Rank._7 == rank) points = 7/2;
-        if (Rank._6 == rank) points = 3;
-        if (Rank._5 == rank) points = 5/2;
-        if (Rank._4 == rank) points = 2;
-        if (Rank._3 == rank) points = 3/2;
-        if (Rank._2 == rank) points = 1;
+        else if (Rank.K == rank) points = 8;
+        else if (Rank.Q == rank) points = 7;
+        else if (Rank.J == rank) points = 6;
+        else if (Rank._10 == rank) points = 5;
+        else if (Rank._9 == rank) points = 9/2;
+        else if (Rank._8 == rank) points = 4;
+        else if (Rank._7 == rank) points = 7/2;
+        else if (Rank._6 == rank) points = 3;
+        else if (Rank._5 == rank) points = 5/2;
+        else if (Rank._4 == rank) points = 2;
+        else if (Rank._3 == rank) points = 3/2;
+        else if (Rank._2 == rank) points = 1;
+        else Console.WriteLine("CARD NOT FOUND");
     }
     
     public int getGap(Card card)
