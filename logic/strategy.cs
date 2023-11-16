@@ -55,9 +55,11 @@ public class Strategy
         if (currentPosition < 0) currentPosition = table.players.Length - currentPosition - 1;
         
         Console.WriteLine("current Position: " + currentPosition + " " + table.currentDealer);
+        var modifier = 0;
+        if (table.round > 10) modifier = 4;
         
-        if (score >= 7 && currentPosition <= 1) return new Bet(table.minimumRaise);
-        if (score >= 6 && currentPosition <= 1) 
+        if (score >= (7 - modifier) && currentPosition <= 1) return new Bet(table.minimumRaise);
+        if (score >= (6 - modifier) && currentPosition <= 1) 
         {
             Console.WriteLine("FOLD");
             return new Bet(0);
