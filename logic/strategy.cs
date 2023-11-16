@@ -49,11 +49,12 @@ public class Strategy
             Console.WriteLine("ALL IN");
             return new Bet(ourPlayer.stack);
         }
+
         if (score >= 8) return new Bet(table.minimumRaise);
 
         var currentPosition = table.activePlayer - table.currentDealer;
         if (currentPosition < 0) currentPosition = table.players.Length - currentPosition - 1;
-        
+
         Console.WriteLine("current Position: " + currentPosition + " " + table.currentDealer);
         var modifier = 0;
         var outPlayers = 0;
@@ -61,25 +62,27 @@ public class Strategy
         {
             if (tablePlayer.status == "OUT") outPlayers++;
         }
+
         Console.WriteLine("outPlayers: " + outPlayers);
         if (outPlayers > 3) modifier = 1;
         if (outPlayers > 5) modifier = 3;
-        
-        if (score >= (7 - modifier) && currentPosition <= 1) return new Bet(table.minimumRaise);
-        if (score >= (6 - modifier) && currentPosition <= 1) 
+
+        if (score >= (6 - modifier) && currentPosition <= 1) return new Bet(table.minimumRaise);
+        if (score >= (5 - modifier) && currentPosition <= 1)
         {
             Console.WriteLine("FOLD");
             return new Bet(0);
         }
-        
-        if (score >= (6- modifier) && currentPosition <= 3) return new Bet(table.minimumRaise);
-        if (score >= (5- modifier) && currentPosition <= 3)
+
+        if (score >= (5 - modifier) && currentPosition <= 3) return new Bet(table.minimumRaise);
+        if (score >= (4 - modifier) && currentPosition <= 3)
         {
             Console.WriteLine("FOLD");
             return new Bet(0);
         }
-        if (score >= (5- modifier) && currentPosition <= 5) return new Bet(table.minimumRaise);
-        if (score >= (4- modifier) && currentPosition <= 5)
+
+        if (score >= (4 - modifier) && currentPosition <= 5) return new Bet(table.minimumRaise);
+        if (score >= (3 - modifier) && currentPosition <= 5)
         {
             Console.WriteLine("FOLD");
             return new Bet(0);
