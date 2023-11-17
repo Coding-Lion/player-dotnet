@@ -48,13 +48,13 @@ public class Strategy
         if (gap <= 1 && higherCard.rank != "Q" && higherCard.rank != "K" && higherCard.rank != "A")
             score += 1;
 
-        if (score >= 12)
+        if (score >= 11)
         {
             Console.WriteLine("ALL IN");
             return new Bet(ourPlayer.stack);
         }
 
-        if (score >= 8) return new Bet(table.minimumRaise);
+        if (score >= 9) return new Bet(table.minimumRaise);
 
         var currentPosition = table.activePlayer - table.currentDealer;
         if (currentPosition < 0) currentPosition = table.players.Length - currentPosition - 1;
@@ -71,15 +71,15 @@ public class Strategy
         if (outPlayers > 3) modifier = 1;
         if (outPlayers > 5) modifier = 3;
 
-        if (score >= (6 - modifier) && currentPosition <= 1) return new Bet(table.minimumRaise);
-        if (score >= (5 - modifier) && currentPosition <= 1)
+        if (score >= (7 - modifier) && currentPosition <= 1) return new Bet(table.minimumRaise);
+        if (score >= (6 - modifier) && currentPosition <= 1)
         {
             Console.WriteLine("FOLD");
             return new Bet(0);
         }
 
-        if (score >= (5 - modifier) && currentPosition <= 3) return new Bet(table.minimumRaise);
-        if (score >= (4 - modifier) && currentPosition <= 3)
+        if (score >= (6 - modifier) && currentPosition <= 3) return new Bet(table.minimumRaise);
+        if (score >= (5 - modifier) && currentPosition <= 3)
         {
             Console.WriteLine("FOLD");
             return new Bet(0);
